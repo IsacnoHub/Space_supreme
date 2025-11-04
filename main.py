@@ -194,7 +194,7 @@ def tomar_dano():
         return
     
     # Reseta a posição e ativa invencibilidade
-    jogador.set_position(janela.width / 2 - jogador.width / 2, janela.height * 7 / 8)
+    #jogador.set_position(janela.width / 2 - jogador.width / 2, janela.height * 7 / 8)
     invencivel = True
     timer_invencibilidade = 0.0
 
@@ -343,7 +343,7 @@ while True:
 
         # Tiro Inimigo
         if timer_tiro_ini >= intervalo_tiro_ini:
-            intervalo_tiro_ini = intervalo + random.uniform(-0.5, 1.5) / (vel_ini / 50) 
+            intervalo_tiro_ini = 2.0 + random.uniform(-0.5, 1.5) / (vel_ini / 50) 
             timer_tiro_ini = 0.0
             da_tiro_ini()
 
@@ -444,13 +444,13 @@ while True:
 
         # Lógica de seleção de dificuldade
         if mouse.is_over_object(Facil) and mouse.is_button_pressed(1) and mouse_livre:
-            tempo_dif = 1.0; vel_ini = 100; reset_jogo(); state = "jogando"; mouse_livre = False; intervalo = 2.0; duracao_invencibilidade = 5.0
+            tempo_dif = 1.0; vel_ini = 100; reset_jogo(); state = "jogando"; mouse_livre = False; intervalo_tiro_ini = 2.0; duracao_invencibilidade = 5.0
         if mouse.is_over_object(Medio) and mouse.is_button_pressed(1) and mouse_livre:
-            tempo_dif = 0.7; vel_ini = 150; reset_jogo(); state = "jogando"; mouse_livre = False; intervalo = 1.5; duracao_invencibilidade = 3.0
+            tempo_dif = 0.7; vel_ini = 150; reset_jogo(); state = "jogando"; mouse_livre = False; intervalo_tiro_ini = 1.5; duracao_invencibilidade = 3.0
         if mouse.is_over_object(Dificil) and mouse.is_button_pressed(1) and mouse_livre:
-            tempo_dif = 0.5; vel_ini = 200; reset_jogo(); state = "jogando"; mouse_livre = False; intervalo = 1.0; duracao_invencibilidade = 2.5
+            tempo_dif = 0.5; vel_ini = 200; reset_jogo(); state = "jogando"; mouse_livre = False; intervalo_tiro_ini = 1.0; duracao_invencibilidade = 2.5
         if mouse.is_over_object(Impossivel) and mouse.is_button_pressed(1) and mouse_livre:
-            tempo_dif = 0.3; vel_ini = 300; reset_jogo(); state = "jogando"; mouse_livre = False; intervalo = 0.5; duracao_invencibilidade = 1.5
+            tempo_dif = 0.3; vel_ini = 300; reset_jogo(); state = "jogando"; mouse_livre = False; intervalo_tiro_ini = 0.5; duracao_invencibilidade = 1.5
             
         if teclado.key_pressed("esc"):
             state = "string"
